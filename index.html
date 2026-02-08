@@ -3,34 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>我的个人网站</title>
-    <!-- 内嵌CSS样式：统一设置页面外观 -->
     <style>
-        /* 注意：这是CSS注释（和HTML注释写法不同），仅作对比 */
         body {
-            text-align: center; /* 文本水平居中 */
-            margin-top: 100px; /* 页面内容顶部偏移100px */
-            font-family: Arial; /* 全局字体 */
+            text-align: center;
+            margin-top: 100px;
+            font-family: Arial;
         }
         h1 {
-            color: #2c3e50; /* 一级标题颜色：深蓝灰色 */
+            color: #2c3e50;
         }
         p {
-            color: #7f8c8d; /* 段落文本颜色：浅灰色 */
-            font-size: 18px; /* 段落字体大小 */
+            color: #7f8c8d;
+            font-size: 18px;
         }
-        img {
-            width: 300px;  /* 图片宽度 */
-            border-radius: 8px; /* 圆角效果 */
-            margin: 20px 0;
+        /* 新增：图片容器 - 核心是flex布局实现并排 */
+        .img-container {
+            display: flex; /* 让子元素（图片）横向排列 */
+            justify-content: center; /* 图片整体水平居中 */
+            gap: 20px; /* 图片之间的间距（替代margin，更简洁） */
+            flex-wrap: wrap; /* 屏幕宽度不够时自动换行，适配手机/小屏幕 */
+            padding: 0 20px; /* 左右留边，避免贴边 */
+        }
+        /* 统一设置所有图片样式 */
+        .img-container img {
+            width: 300px;
+            border-radius: 8px;
+            /* 去掉原有margin，改用gap控制间距更统一 */
         }
     </style>
 </head>
 <body>
-    <!-- 页面主标题 -->
     <h1>hello</h1>
-    <!-- 临时注释掉测试用的段落（不会显示）
-    
-    -->
-    <img src="images/白芸豆.jpg" alt="你不理我我就这样">
+    <!-- 图片容器：包裹所有要并排的图片 -->
+    <div class="img-container">
+        <!-- 第一张图 -->
+        <img src="images/白芸豆.jpg" alt="你不理我我就这样">
+        <!-- 第二张图：复制img标签，改src和alt即可 -->
+        <img src="images/黄豆.jpg" alt="第二张照片">
+        <!-- 第三张图：继续添加 -->
+        <img src="images/布偶.jpg" alt="第三张照片">
+    </div>
 </body>
 </html>
